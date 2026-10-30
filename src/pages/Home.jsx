@@ -1,6 +1,8 @@
 function Home(){
     return (
-        <div></div>
+        <div>
+            <p style={{color: "white"}}>HOME PAGE</p>
+        </div>
     )
 }
 

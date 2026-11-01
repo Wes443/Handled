@@ -9,7 +9,5 @@ export default function Input({text, color, onChange, icon}){
             {icon === "danger" && <Danger style={{width: "24px", height: "24px", color: "var(--container)", marginTop: "5px"}}/>}
             <p>{text}</p>
         </div>
-
-        
     );
 }

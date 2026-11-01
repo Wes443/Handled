@@ -70,7 +70,7 @@ function Home(){
                 
                 <div className={styles["pending"]}>
                     <span style={{display: "flex", justifyContent: "space-between"}}>
-                        <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Upcoming Visit</p>
+                        <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Pending Orders</p>
                         <Down style={{width: "20", height: "20", color: "var(--hover-text)", transform: "rotate(270deg)"}} />
                     </span>
 

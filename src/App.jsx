@@ -3,7 +3,8 @@ import { AuthProvider } from "../firebase/AuthContext";
 import ProtectedRoute from "../firebase/ProtectedRoute";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Orders from "./pages/Orders"
+import Orders from "./pages/Orders";
+import CreateOrder from "./pages/CreateOrder";
 import Chat from "./pages/Chat";
 import "./css/global.css";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path="/orders" element={<ProtectedRoute><Orders/></ProtectedRoute>} />
           <Route path="/chat" element={<ProtectedRoute><Chat/></ProtectedRoute>} />
+          <Route path="/create-order" element={<ProtectedRoute><CreateOrder/></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

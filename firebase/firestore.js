@@ -1,9 +1,9 @@
 import { db } from "./firebase";
-import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, where, Timestamp, orderBy, limit } from "firebase/firestore";
+import { collection, doc, setDoc, getDocs, query, where, Timestamp, orderBy, limit } from "firebase/firestore";
 
 //function that adds a work order to the database
 export async function createWorkOrder(order) {
-    const ref = doc(collection(db, "Work Order"));
+    const ref = doc(collection(db, "Work Orders"));
     await setDoc(ref, {...order, orderId: ref.id});
     return ref.id;
 }

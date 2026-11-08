@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import styles from "../css/order.module.css";
 
-export default function WorkOrder({issue, priority, datetime}){
-    const date = datetime.toDate();
+export default function WorkOrder({order}){
+    const date = order?.time.toDate();
+    const issue = order?.issue;
+    const priority = order?.priority;
+    const navigate = useNavigate();
 
     const day = date.toLocaleDateString("en-US", {
         weekday: "short",
@@ -15,7 +19,7 @@ export default function WorkOrder({issue, priority, datetime}){
     });
 
     return (
-        <div className={styles["order"]}>
+        <div className={styles["order"]} onClick={() => navigate("/order-details", {state: { order: {...order, time: order.time.toDate()}, from: "any" }})}>
             <div style={{display: "flex", flexDirection: "column"}}>
                 <p>{day} | {time}</p>
                 <p>issue: {issue}</p>

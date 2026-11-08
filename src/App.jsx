@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Orders from "./pages/Orders";
 import CreateOrder from "./pages/CreateOrder";
 import Chat from "./pages/Chat";
+import OrderDetails from "./pages/OrderDetails";
+
 import "./css/global.css";
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="/orders" element={<ProtectedRoute><Orders/></ProtectedRoute>} />
           <Route path="/chat" element={<ProtectedRoute><Chat/></ProtectedRoute>} />
           <Route path="/create-order" element={<ProtectedRoute><CreateOrder/></ProtectedRoute>} />
+          <Route path="/order-details" element={<ProtectedRoute><OrderDetails/></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -28,7 +28,7 @@ export async function getUpcomingWorkOrder(userId) {
         collection(db, "Work Orders"),
         where("userId", "==", userId),
         where("status", "==", "upcoming"),
-        where("time", ">=", Timestamp.now()),
+        where("time", "<=", Timestamp.now()),
         orderBy("time", "desc"),
         limit(1)
     );

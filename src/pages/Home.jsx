@@ -56,7 +56,7 @@ function Home(){
 
     }, [user, loading]);
 
-    if (loading || loadingData) return <p>Loading...</p>;
+    if (loading || loadingData || !upcomingOrder || !pendingOrders) return <p>Loading...</p>;
 
     return (
         <div className={styles["page"]}>
@@ -64,7 +64,7 @@ function Home(){
             <div className={styles["content"]}>
                 <div className={styles["upcoming"]}>
                     <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Upcoming Visit</p>
-                    {upcomingOrder && <WorkOrder issue={upcomingOrder.issue} priority={upcomingOrder.priority} datetime={upcomingOrder.time} />}
+                    {upcomingOrder && <WorkOrder order={upcomingOrder} />}
                     {upcomingOrder == null && <p style={{color: "var(--default-text)", paddingLeft: "5px"}}>nothing to see here...</p>}
                 </div>
                 
@@ -76,9 +76,8 @@ function Home(){
 
                     {pendingOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "5px"}}>nothing to see here...</p>}
                     {pendingOrders && pendingOrders.map(order => (
-                        <WorkOrder key={order.id} issue={order.issue} priority={order.priority} datetime={order.time} />
+                        <WorkOrder key={order.id} order={order} />
                     ))}
-                    
                 </div>
 
                 <Button text="create work order" color="var(--btn-1)" onChange={() => navigate("/create-order")} icon="plus" />

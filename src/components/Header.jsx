@@ -8,7 +8,7 @@ function Header({user}) {
 
     return (
         <div className={styles["bar"]}>
-            <div onClick={() => navigate("/home", {replace: true})}><Down style={{color: "var(--default-text)", transform: "rotate(90deg)"}}/></div>
+            <div onClick={() => navigate(-1)}><Down style={{color: "var(--default-text)", transform: "rotate(90deg)"}}/></div>
             <div className={styles["pfp"]}>
                 <p>{getInitials(user)}</p>
             </div>

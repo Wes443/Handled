@@ -9,6 +9,9 @@ import Chat from "./pages/Chat";
 import OrderDetails from "./pages/OrderDetails";
 import Report from "./pages/Report";
 import RecurringReport from "./pages/RecurringReport";
+import PendingOrders from "./pages/PendingOrders";
+import PastOrders from "./pages/PastOrders";
+import UpcomingOrders from "./pages/UpcomingOrders"
 
 import "./css/global.css";
 
@@ -28,6 +31,9 @@ function App() {
           <Route path="/order-details" element={<ProtectedRoute><OrderDetails/></ProtectedRoute>} />
           <Route path="/report-issue" element={<ProtectedRoute><Report/></ProtectedRoute>} />
           <Route path="/report-recurring-issue" element={<ProtectedRoute><RecurringReport/></ProtectedRoute>} />
+          <Route path="/past-orders" element={<ProtectedRoute><PastOrders/></ProtectedRoute>} />
+          <Route path="/upcoming-orders" element={<ProtectedRoute><UpcomingOrders/></ProtectedRoute>} />
+          <Route path="/pending-orders" element={<ProtectedRoute><PendingOrders/></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

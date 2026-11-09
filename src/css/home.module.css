@@ -37,7 +37,14 @@
     box-sizing: border-box;
     padding: 10px;
     flex: 1;
-    overflow-y: auto;
     min-height: 0;
     gap: 10px;
+}
+
+.orders {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
 }

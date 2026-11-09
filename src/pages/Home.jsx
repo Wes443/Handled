@@ -69,15 +69,17 @@ function Home(){
                 </div>
                 
                 <div className={styles["pending"]}>
-                    <span style={{display: "flex", justifyContent: "space-between"}}>
+                    <span style={{display: "flex", justifyContent: "space-between"}} onClick={() => navigate("/pending-orders")}>
                         <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Pending Orders</p>
                         <Down style={{width: "20", height: "20", color: "var(--hover-text)", transform: "rotate(270deg)"}} />
                     </span>
 
                     {pendingOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "5px"}}>nothing to see here...</p>}
-                    {pendingOrders && pendingOrders.map(order => (
-                        <WorkOrder key={order.id} order={order} />
-                    ))}
+                    <div className={styles["orders"]}>
+                        {pendingOrders && pendingOrders.map(order => (
+                            <WorkOrder key={order.id} order={order} />
+                        ))}
+                    </div>
                 </div>
 
                 <Button text="create work order" color="var(--btn-1)" onChange={() => navigate("/create-order")} icon="plus" />

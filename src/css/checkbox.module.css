@@ -1,0 +1,21 @@
+.checkbox-container {
+	display: flex;
+	gap: 5px;
+	color: white;
+	font-family: inherit;
+	align-items: center;
+}
+
+.check-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	box-sizing: border-box;
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+.check-container p {
+	color: white;
+}

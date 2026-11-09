@@ -7,6 +7,7 @@ import Orders from "./pages/Orders";
 import CreateOrder from "./pages/CreateOrder";
 import Chat from "./pages/Chat";
 import OrderDetails from "./pages/OrderDetails";
+import Report from "./pages/Report";
 
 import "./css/global.css";
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/chat" element={<ProtectedRoute><Chat/></ProtectedRoute>} />
           <Route path="/create-order" element={<ProtectedRoute><CreateOrder/></ProtectedRoute>} />
           <Route path="/order-details" element={<ProtectedRoute><OrderDetails/></ProtectedRoute>} />
+          <Route path="/report-issue" element={<ProtectedRoute><Report/></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

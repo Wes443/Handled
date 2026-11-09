@@ -8,6 +8,13 @@ export async function createWorkOrder(order) {
     return ref.id;
 }
 
+//function that adds a work order to the database
+export async function createReport(report) {
+    const ref = doc(collection(db, "Reports"));
+    await setDoc(ref, {...report, reportId: ref.id});
+    return ref.id;
+}
+
 //function that returns all the work orders for a specific user
 export async function getWorkOrders(userId) {
     const q = query(collection(db, "Work Orders"), where("userId", "==", userId));

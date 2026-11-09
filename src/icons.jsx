@@ -5,6 +5,9 @@ import MessageSvg from "./assets/message.svg?react";
 import DownSvg from "./assets/down.svg?react";
 import PlusSvg from "./assets/plus.svg?react";
 import DangerSvg from "./assets/danger.svg?react";
+import CheckboxSvg from "./assets/check-box.svg?react";
+import UncheckBoxSvg from "./assets/uncheck-box.svg?react";
+import UploadSvg from "./assets/upload.svg?react";
 
 export function GoogleLogo(props){
     return <GoogleSvg {...props} />
@@ -32,4 +35,16 @@ export function Plus(props){
 
 export function Danger(props){
     return <DangerSvg {...props} />
+}
+
+export function Check(props){
+    return <CheckboxSvg {...props} />
+}
+
+export function Uncheck(props){
+    return <UncheckBoxSvg {...props} />
+}
+
+export function Upload(props){
+    return <UploadSvg {...props} />
 }

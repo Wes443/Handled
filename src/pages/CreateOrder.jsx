@@ -89,6 +89,10 @@ function CreateOrder(){
         }
     }
 
+    const uploadImage = async() => {
+
+    }
+
     if (loading) return <p>Loading...</p>;
 
     return (
@@ -125,7 +129,7 @@ function CreateOrder(){
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Describe the issue..."
                 />
-
+                <Button text="upload image" color="var(--container)" onChange={uploadImage} icon="upload"/>
                 <Button text="review" color="var(--btn-1)" onChange={() => checkFields()} />
 
                 {error && <p style={{color: "var(--btn-2)", alignSelf: "center"}}>{error}</p>}

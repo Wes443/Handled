@@ -82,6 +82,7 @@ function Home(){
 
                 <Button text="create work order" color="var(--btn-1)" onChange={() => navigate("/create-order")} icon="plus" />
                 <Button text="report issue" color="var(--btn-2)" onChange={() => navigate("/report-issue")} icon="danger" />
+                <Button text="report recurring issue" color="var(--btn-2)" onChange={() => navigate("/report-recurring-issue")} icon="recurring" />
             </div>
             <Navbar />
         </div>

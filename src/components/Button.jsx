@@ -1,5 +1,5 @@
 import styles from "../css/button.module.css"; 
-import { GoogleLogo, Plus, Danger, Upload } from "../icons";
+import { GoogleLogo, Plus, Danger, Upload, Recurring } from "../icons";
 
 export default function Input({text, color, onChange, icon}){
     return (
@@ -8,6 +8,7 @@ export default function Input({text, color, onChange, icon}){
             {icon === "plus" && <Plus style={{width: "24px", height: "24px", color: "var(--container)"}}/>}
             {icon === "danger" && <Danger style={{width: "24px", height: "24px", color: "var(--container)", marginTop: "5px"}}/>}
             {icon === "upload" && <Upload style={{width: "24px", height: "24px", color: "var(--container)"}} />}
+            {icon === "recurring" && <Recurring style={{width: "24px", height: "24px", color: "var(--default-text)"}} /> }
             <p>{text}</p>
         </div>
     );

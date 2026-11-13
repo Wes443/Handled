@@ -47,7 +47,6 @@ function Report(){
             <div className={styles["content"]}>
                 <div className={styles["report-box"]}>
                     <p style={{color: "var(--default-text)"}}>What is the reason for your report?</p>
-                    <CheckBox reason="SexualMisconduct" checked={reasons.includes("SexualMisconduct")} label="Sexual misconduct" checkboxToggle={toggleReason} />
                     <CheckBox reason="StolenProperty" checked={reasons.includes("StolenProperty")} label="Stolen property" checkboxToggle={toggleReason} />
                     <CheckBox reason="BrokenAppliance" checked={reasons.includes("BrokenAppliance")} label="Broken appliance" checkboxToggle={toggleReason} />
                     <CheckBox reason="MaintenanceBehavior" checked={reasons.includes("MaintenanceBehavior")} label="Maintenance behavior" checkboxToggle={toggleReason} />

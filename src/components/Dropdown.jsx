@@ -51,14 +51,12 @@ export function DateTimeField({ value, onChange, placeholder = "Pick a date and 
     const inputRef = useRef(null);
 
     function openPicker() {
-        const input = inputRef.current;
-        if (!input) return;
+        // desktop browsers only open the picker from the little calendar icon,
+        // so open it for any click on the field. Phones open it natively on tap.
         try {
-            input.showPicker();
-
+            inputRef.current?.showPicker?.();
         } catch {
-            input.focus(); // fallback for browsers without showPicker
-            input.click();
+            // some browsers don't allow showPicker here; the native tap still works
         }
     }
 
@@ -84,10 +82,10 @@ export function DateTimeField({ value, onChange, placeholder = "Pick a date and 
 
     return (
         <div className="datetime-field">
-            <button className="datetime-trigger" onClick={openPicker}>
+            <div className="datetime-trigger" aria-hidden="true">
                 {display}
                 <Down style={{width: "20", height: "20", color: "var(--default-text)"}} />
-            </button>
+            </div>
 
             <input
                 ref={inputRef}
@@ -95,8 +93,8 @@ export function DateTimeField({ value, onChange, placeholder = "Pick a date and 
                 className="datetime-input"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                tabIndex={-1}
-                aria-hidden="true"
+                onClick={openPicker}
+                aria-label={placeholder}
             />
         </div>
     );

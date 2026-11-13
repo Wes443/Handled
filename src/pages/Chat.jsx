@@ -1,7 +1,7 @@
 function Chat() {
     return(
         <div>
-            <p style={{color: "white"}}>CHAT</p>
+            <p style={{color: "var(--default-text)"}}>CHAT</p>
         </div>
     );
 }

@@ -1,13 +1,18 @@
 /* global variables */
 :root {
-    --bkgd: #1d2227;
-    --accent: #262c32;
-    --container: #33465a;
-    --btn-1: #5f7f8f;
-    --btn-2: #b56f71;
-    --default-text: #e8ebee;
-    --hover-text: #9aa3ab;
-    --pill: #ffffff24;
+    --bkgd: #F4F6F5;
+    --accent: #ffffff;
+    --container: #ffffff;
+    --btn-1: #0E8F7E;
+    --btn-2: #E5484D;
+    --default-text: #14201D;
+    --hover-text: #6B7A76;
+    --pill: #DDF3EF;
+    --line: #E3E9E7;
+    --brand: #0E8F7E;
+    --brand-dark: #0A6F62;
+    --brand-light: #DDF3EF;
+    --shadow: 0 1px 2px #0000000a, 0 8px 24px -12px #0a3a3333;
 }
 
 /* global element css */

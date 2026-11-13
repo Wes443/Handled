@@ -1,7 +1,7 @@
 .checkbox-container {
 	display: flex;
 	gap: 5px;
-	color: white;
+	color: var(--default-text);
 	font-family: inherit;
 	align-items: center;
 }
@@ -17,5 +17,5 @@
 }
 
 .check-container p {
-	color: white;
+	color: var(--default-text);
 }

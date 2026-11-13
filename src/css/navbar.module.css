@@ -1,7 +1,11 @@
 .bar {
-    width: 100%;
-    height: 60px;
-    background-color: var(--accent);
+    margin: 0 14px 14px;
+    padding: 8px;
+    height: 64px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 26px;
+    box-shadow: 0 10px 30px -8px #0a3a3340;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -9,16 +13,26 @@
 }
 
 .icon {
+    flex: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
+    border-radius: 20px;
+    color: var(--hover-text);
+    cursor: pointer;
+}
+
+.icon:active {
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
 }
 
 .icon p {
-    color: var(--default-text);
+    color: inherit;
     font: inherit;
-    font-size: 12px;
-    
+    font-size: 11.5px;
+    font-weight: 650;
 }

@@ -24,7 +24,7 @@ export default function WorkOrder({order}){
                 <p>{day} | {time}</p>
                 <p>issue: {issue}</p>
             </div>
-            <div className={styles["pill"]} style={{backgroundColor: priority == "medium" || priority == "low" ? "var(--pill)" : "var(--btn-2)"}}>
+            <div className={styles["pill"]} style={{backgroundColor: priority == "medium" || priority == "low" ? "var(--pill)" : "var(--btn-2)", color: priority == "medium" || priority == "low" ? undefined : "#fff"}}>
                 <p>{priority}</p>
             </div>
         </div>

@@ -1,12 +1,13 @@
 .input-container {
     display: flex;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 14px;
     align-items: center;
     gap: 5px;
     line-height: 1;
     color: var(--hover-text);
-    background-color: #2e363f;
+    background-color: #fff;
+    border: 1.5px solid var(--line);
     padding: 5px;
     padding-left: 15px;
     width: 100%;
@@ -14,8 +15,8 @@
 }
 
 .input-container:focus-within {
-    border: 1px solid white;
-    color: white;
+    border-color: var(--brand);
+    color: var(--brand-dark);
 }
 
 .input {

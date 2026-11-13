@@ -8,15 +8,15 @@ function Navbar(){
     return(
         <div className={styles["bar"]}>
             <div className={styles["icon"]} onClick={() => navigate("/home")}>
-                <Home style={{width: "32", height: "32", color: "var(--default-text)"}}/>
+                <Home style={{width: "24", height: "24", color: "currentColor"}}/>
                 <p>Home</p>
             </div>
             <div className={styles["icon"]} onClick={() => navigate("/orders")}>
-                <Calendar style={{width: "32", height: "32", color: "var(--default-text)"}}/>
+                <Calendar style={{width: "24", height: "24", color: "currentColor"}}/>
                 <p>My Orders</p>
             </div>
             <div className={styles["icon"]} onClick={() => navigate("/chat")}>
-                <Message style={{width: "32", height: "32", color: "var(--default-text)"}}/>
+                <Message style={{width: "24", height: "24", color: "currentColor"}}/>
                 <p>Chat</p>
             </div>
         </div>

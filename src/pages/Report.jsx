@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import CheckBox from "../components/Checkbox";
 import { useAuth } from "../../firebase/AuthContext";
 import Button from "../components/Button";
+import ImageUpload from "../components/ImageUpload";
 import { createReport } from "../../firebase/firestore";
 import styles from "../css/report.module.css";
 import { Timestamp } from "firebase/firestore";
@@ -13,6 +14,7 @@ function Report(){
     const { user, loading } = useAuth();
     const [ reasons, setReasons ] = useState([]);
     const [ description, setDescription ] = useState("");
+    const [ images, setImages ] = useState([]);
 
     const navigate = useNavigate();
 
@@ -28,16 +30,13 @@ function Report(){
                 reasons: reasons,
                 userId: user.uid,
                 time: Timestamp.now(),
+                images: images,
             })
 
             navigate("/home", {replace: true});
         }catch(error){
             console.log(error)
         }
-    }
-
-    const uploadImage = async() => {
-
     }
 
     if (loading) return <p>loading...</p>
@@ -58,10 +57,10 @@ function Report(){
                         onChange={(e) => setDescription(e.target.value)}
                         placeholder="start typing..."
                     />
-                    <Button text="upload image" color="var(--container)" onChange={uploadImage} icon="upload"/>
+                    <ImageUpload images={images} onChange={setImages} />
                     <Button text={"Submit"} color={"var(--btn-1)"} onChange={handleSubmit} />
                 </div>
-                
+
             </div>
             <Navbar />
         </div>

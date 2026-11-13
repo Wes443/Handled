@@ -10,7 +10,7 @@ function OrderDetails () {
     const { user, loading } = useAuth();
 
     if(!state?.order) navigate("/home");
-    
+
     const date = state.order.time;
     const issue = state.order.issue;
     const priority = state.order.priority;
@@ -18,6 +18,7 @@ function OrderDetails () {
     const orderId = state.order.orderId;
     const entry = state.order.entry;
     const description = state.order.description;
+    const images = state.order.images || [];
 
 
     const day = date.toLocaleDateString("en-US", {
@@ -46,6 +47,19 @@ function OrderDetails () {
                     <p><span style={{color: "var(--hover-text)"}}>Entry</span> {entry}</p>
                     <p style={{color: "var(--hover-text)"}}>Description</p>
                     <p>{description}</p>
+                    {images.length > 0 && <>
+                        <p style={{color: "var(--hover-text)"}}>Photos</p>
+                        <div style={{display: "flex", flexWrap: "wrap", gap: "10px"}}>
+                            {images.map((src, i) => (
+                                <img
+                                    key={i}
+                                    src={src}
+                                    alt={`Photo ${i + 1} for this order`}
+                                    style={{maxWidth: "100%", maxHeight: "300px", borderRadius: "10px", objectFit: "contain"}}
+                                />
+                            ))}
+                        </div>
+                    </>}
                 </div>
             </div>
             <Navbar />

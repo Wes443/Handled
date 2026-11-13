@@ -3,6 +3,7 @@ import styles from "../css/createOrder.module.css";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Button from "../components/Button";
+import ImageUpload from "../components/ImageUpload";
 import { useAuth } from "../../firebase/AuthContext";
 import { Dropdown, DateTimeField } from "../components/Dropdown";
 import { createWorkOrder } from "../../firebase/firestore";
@@ -16,6 +17,7 @@ function CreateOrder(){
     const [ dateTime, setDateTime ] = useState("");
     const [ entry, setEntry ] = useState("");
     const [ description, setDescription ] = useState("");
+    const [ images, setImages ] = useState([]);
     const [ review, setReview ] = useState(false);
     const [ error, setError] = useState("");
     const navigate = useNavigate();
@@ -45,6 +47,7 @@ function CreateOrder(){
 
     function checkFields() {
         if ([priority, reason, dateTime, entry].every((field) => field !== "")){
+            setError("");
             setReview(true)
         }else{
             setError("Missing required fields!")
@@ -78,19 +81,16 @@ function CreateOrder(){
                 priority: priority,
                 status: "pending",
                 userId: user.uid,
-                time: Timestamp.fromDate(new Date(dateTime))
+                time: Timestamp.fromDate(new Date(dateTime)),
+                images: images,
             })
-            
+
             navigate("/home", {replace: true});
 
         }catch(error){
             console.log(error);
             setError("An error occured");
         }
-    }
-
-    const uploadImage = async() => {
-
     }
 
     if (loading) return <p>Loading...</p>;
@@ -100,24 +100,24 @@ function CreateOrder(){
             <Header user={user} />
 
             {!review && <div className={styles["content"]}>
-                <Dropdown 
-                    options={priorities} 
-                    value={priority} 
-                    onChange={setPriority} 
-                    placeholder="Select a priority" 
+                <Dropdown
+                    options={priorities}
+                    value={priority}
+                    onChange={setPriority}
+                    placeholder="Select a priority"
                 />
 
-                <Dropdown 
-                    options={reasons} 
-                    value={reason} 
-                    onChange={setReason} 
+                <Dropdown
+                    options={reasons}
+                    value={reason}
+                    onChange={setReason}
                     placeholder="Select a reason"
                 />
 
-                <Dropdown 
-                    options={entries} 
-                    value={entry} 
-                    onChange={setEntry} 
+                <Dropdown
+                    options={entries}
+                    value={entry}
+                    onChange={setEntry}
                     placeholder="Select an entry type"
                 />
 
@@ -129,7 +129,7 @@ function CreateOrder(){
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Describe the issue..."
                 />
-                <Button text="upload image" color="var(--container)" onChange={uploadImage} icon="upload"/>
+                <ImageUpload images={images} onChange={setImages} />
                 <Button text="review" color="var(--btn-1)" onChange={() => checkFields()} />
 
                 {error && <p style={{color: "var(--btn-2)", alignSelf: "center"}}>{error}</p>}
@@ -145,6 +145,19 @@ function CreateOrder(){
                     <p><span style={{color: "var(--hover-text)"}}>Entry: </span>{entry}</p>
                     <p style={{color: "var(--hover-text)"}}>Notes</p>
                     <p>{description}</p>
+                    {images.length > 0 && <>
+                        <p style={{color: "var(--hover-text)"}}>Photos</p>
+                        <div style={{display: "flex", flexWrap: "wrap", gap: "8px"}}>
+                            {images.map((src, i) => (
+                                <img
+                                    key={i}
+                                    src={src}
+                                    alt={`Attached photo ${i + 1}`}
+                                    style={{width: "80px", height: "80px", objectFit: "cover", borderRadius: "8px"}}
+                                />
+                            ))}
+                        </div>
+                    </>}
                   </div>
 
                   <Button text="submit" color="var(--btn-1)" onChange={submitOrder} />

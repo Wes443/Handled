@@ -5,12 +5,17 @@ import Navbar from "../components/Navbar";
 import { Dropdown } from "../components/Dropdown";
 import { useState } from "react";
 import Button from "../components/Button";
+import ImageUpload from "../components/ImageUpload";
 import { createRecurringReport } from "../../firebase/firestore";
+import { Timestamp } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 function RecurringReport() {
     const { user, loading } = useAuth();
     const [ number, setNumber ] = useState("");
     const [ description, setDescription ] = useState("");
+    const [ images, setImages ] = useState([]);
+    const navigate = useNavigate();
 
     const numbers = [
         { value: "1", label: "1" },
@@ -20,10 +25,6 @@ function RecurringReport() {
         { value: "5+", label: "5+" },
     ];
 
-    const uploadImage = async() => {
-
-    }
-
     const handleSubmit = async() => {
         try{
             await createRecurringReport({
@@ -31,6 +32,7 @@ function RecurringReport() {
                 number: number,
                 userId: user.uid,
                 time: Timestamp.now(),
+                images: images,
             })
 
             navigate("/home", {replace: true});
@@ -55,7 +57,7 @@ function RecurringReport() {
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Describe the recurrence..."
                 />
-                <Button text="upload image" color="var(--container)" onChange={uploadImage} icon="upload"/>
+                <ImageUpload images={images} onChange={setImages} />
                 <Button text="submit" color="var(--btn-1)" onChange={handleSubmit} />
             </div>
             <Navbar />

@@ -1,0 +1,63 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* hidden, but still clickable from code (works on iOS too) */
+.hidden-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.thumb {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 18px;
+    line-height: 26px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.remove:hover {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.error {
+    color: var(--btn-2);
+    font-size: 0.9rem;
+    align-self: center;
+}

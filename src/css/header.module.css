@@ -25,3 +25,49 @@
     font-family: inherit;
     font-size: 12px;
 }
+
+.profile {
+    position: relative;
+}
+
+.pfp {
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 180px;
+    background: #2f353f;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+.menu-email {
+    color: var(--hover-text);
+    font-size: 0.8rem;
+    padding: 4px 8px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-item {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: var(--btn-2);
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}

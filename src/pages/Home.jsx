@@ -7,7 +7,7 @@ import styles from "../css/home.module.css";
 import { useAuth } from "../../firebase/AuthContext";
 import { getUpcomingWorkOrder, getWorkOrdersByStatus } from "../../firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { Down, Plus, Danger, Recurring } from "../icons";
+import { Down, Plus, Recurring } from "../icons";
 
 function Home(){
     const { user, loading } = useAuth();
@@ -73,7 +73,7 @@ function Home(){
                         <Plus className={styles["actIcon"]} style={{color: "var(--brand-dark)"}} /><span>New request</span>
                     </button>
                     <button className={styles["act"]} onClick={() => navigate("/report-issue")}>
-                        <Danger className={styles["actIcon"]} style={{color: "var(--btn-2)"}} /><span>Report issue</span>
+                        <svg className={styles["actIcon"]} viewBox="0 0 24 24" fill="none" stroke="var(--btn-2)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3.5 2.5 20h19L12 3.5zM12 10v4.5M12 17.5v.1" /></svg><span>Report issue</span>
                     </button>
                     <button className={styles["act"]} onClick={() => navigate("/report-recurring-issue")}>
                         <Recurring className={styles["actIcon"]} style={{color: "#B77300"}} /><span>Keeps happening</span>

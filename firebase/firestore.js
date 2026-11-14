@@ -1,5 +1,5 @@
 import { db } from "./firebase";
-import { collection, doc, setDoc, getDocs, query, where, Timestamp, orderBy, limit } from "firebase/firestore";
+import { collection, doc, setDoc, getDocs, query, where, Timestamp, orderBy } from "firebase/firestore";
 
 //function that adds a work order to the database
 export async function createWorkOrder(order) {
@@ -42,14 +42,14 @@ export async function getUpcomingWorkOrder(userId) {
         collection(db, "Work Orders"),
         where("userId", "==", userId),
         where("status", "==", "upcoming"),
-        where("time", "<=", Timestamp.now()),
-        orderBy("time", "desc"),
-        limit(1)
+        where("time", ">=", Timestamp.now()),
+        orderBy("time", "desc")
     );
 
     const snap = await getDocs(q);
     if (snap.empty) return null;
 
-    const d = snap.docs[0];
+    //soonest future visit is last in descending order
+    const d = snap.docs[snap.docs.length - 1];
     return { id: d.id, ...d.data() };
 }

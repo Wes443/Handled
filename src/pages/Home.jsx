@@ -12,51 +12,32 @@ import { Down, Plus, Danger, Recurring } from "../icons";
 function Home(){
     const { user, loading } = useAuth();
     const [upcomingOrder, setUpcomingOrder] = useState(null);
-    const [pendingOrders, setPendingOrders] = useState(null);
+    const [pendingOrders, setPendingOrders] = useState([]);
     const [loadingData, setLoadingData] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (!user || loading) return;
 
-        const getUpcoming = async() => {
-            try{
-                const upcoming = await getUpcomingWorkOrder(user.uid);
+        const loadOrders = async () => {
+            try {
+                const [upcoming, pending] = await Promise.all([
+                    getUpcomingWorkOrder(user.uid),
+                    getWorkOrdersByStatus(user.uid, "pending"),
+                ]);
                 setUpcomingOrder(upcoming);
-
-            }catch(error){
-                console.log("failed to load upcoming order", error);
-
-            }finally{
+                setPendingOrders(pending ?? []);
+            } catch (error) {
+                console.log("failed to load orders", error);
+            } finally {
                 setLoadingData(false);
             }
-        }
+        };
 
-        getUpcoming();
-
+        loadOrders();
     }, [user, loading]);
 
-    useEffect(() => {
-        if (!user || loading) return;
-
-        const getPending = async() => {
-            try{
-                const pending = await getWorkOrdersByStatus(user.uid, "pending");
-                setPendingOrders(pending);
-
-            }catch(error){
-                console.log("failed to load pending orders", error);
-
-            }finally{
-                setLoadingData(false);
-            }
-        }
-
-        getPending();
-
-    }, [user, loading]);
-
-    if (loading || loadingData || !upcomingOrder || !pendingOrders) return <p>Loading...</p>;
+    if (loading || loadingData) return <p>Loading...</p>;
 
     const upcomingDate = upcomingOrder?.time?.toDate?.();
     const heroDay = upcomingDate?.toLocaleDateString("en-US", { weekday: "long" });

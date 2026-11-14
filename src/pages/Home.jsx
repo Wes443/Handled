@@ -46,11 +46,11 @@ function Home(){
 
     return (
         <div className={styles["page"]}>
-            <div className={styles["headerWrap"]}><Header user={user} /></div>
+            <Header user={user} isHome={true} />
             <div className={styles["content"]}>
                 <div>
-                    <p style={{color: "var(--hover-text)", fontSize: "14px"}}>Welcome back</p>
-                    <p style={{color: "var(--default-text)", fontSize: "26px", fontWeight: 750, letterSpacing: "-0.02em"}}>{firstName ? `Hi, ${firstName}` : "Hi there"}</p>
+                    <p style={{color: "var(--hover-text)", fontSize: "14px", paddingLeft: "10px"}}>Welcome back</p>
+                    <p style={{color: "var(--default-text)", fontSize: "26px", fontWeight: 750, letterSpacing: "-0.02em", paddingLeft: "10px"}}>{firstName ? `Hi, ${firstName}` : "Hi there"}</p>
                 </div>
 
                 <div className={styles["upcoming"]}>
@@ -58,7 +58,7 @@ function Home(){
                         <div className={styles["hero"]}>
                             <p className={styles["heroLabel"]}>Upcoming visit</p>
                             <p className={styles["heroBig"]}>{heroDay}, {heroTime}</p>
-                            <p className={styles["heroSub"]}>{upcomingOrder.issue}</p>
+                            <p className={styles["heroSub"]}>issue: {upcomingOrder.issue}</p>
                             <div className={styles["heroRow"]}>
                                 <span className={styles["heroChip"]}>Priority: {upcomingOrder.priority}</span>
                             </div>
@@ -83,7 +83,7 @@ function Home(){
                         <svg className={styles["actIcon"]} viewBox="0 0 24 24" fill="none" stroke="var(--btn-2)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3.5 2.5 20h19L12 3.5zM12 10v4.5M12 17.5v.1" /></svg><span>Report issue</span>
                     </button>
                     <button className={styles["act"]} onClick={() => navigate("/report-recurring-issue")}>
-                        <Recurring className={styles["actIcon"]} style={{color: "#B77300"}} /><span>Keeps happening</span>
+                        <Recurring className={styles["actIcon"]} style={{color: "#B77300", width: "50px"}} /><span>Recurring issue</span>
                     </button>
                 </div>
 
@@ -101,7 +101,7 @@ function Home(){
                     </div>
                 </div>
             </div>
-            <div className={styles["navWrap"]}><Navbar /></div>
+            <Navbar />
         </div>
     )
 }

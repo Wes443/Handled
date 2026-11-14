@@ -83,14 +83,13 @@ function Login(){
                     icon="lock"
                 />
 
-                <Button text={creatingAcc ? "Sign Up" : "Login"} color="var(--btn-1)" onChange={handleEmailLogin}/>
+                <Button text={creatingAcc ? "Sign Up" : "Login"} color="linear-gradient(90deg, #0F2F2B 0%, #0B4A42 100%)" onChange={handleEmailLogin}/>
 
                 <div className={styles["toggle"]}>
                     <p>{creatingAcc ? "Already have an account?" : "Don't have an account?"}</p>
                     <p className={styles["click-text"]} onClick={() => setCreatingAcc(!creatingAcc)}>{creatingAcc ? "Login" : "Sign Up"}</p>
                 </div>
 
-                <p style={{fontSize: "20px", color: "var(--default-text)"}}>or</p>
                 <Button text="Continue with Google" color="var(--btn-1)" onChange={handleGoogleLogin} icon="google" />
 
                 {error && <p style={{fontSize: "20px", color: "var(--btn-2)"}}>{error}</p>}

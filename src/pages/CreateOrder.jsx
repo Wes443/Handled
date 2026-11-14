@@ -161,7 +161,7 @@ function CreateOrder(){
                   </div>
 
                   <Button text="submit" color="var(--btn-1)" onChange={submitOrder} />
-                  <Button text="edit order" color="var(--pill)" onChange={() => setReview(false)} />
+                  <Button text="edit order" color="var(--brand-dark)" onChange={() => setReview(false)} />
                   {error && <p style={{color: "var(--btn-2)", alignSelf: "center"}}>{error}</p>}
             </div>}
             <Navbar />

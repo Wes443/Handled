@@ -37,9 +37,9 @@
 .menu {
     position: absolute;
     top: calc(100% + 8px);
-    right: 0;
+    right: 5px;
     min-width: 180px;
-    background: #2f353f;
+    background: var(--brand-dark);
     border-radius: 10px;
     padding: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -47,7 +47,7 @@
 }
 
 .menu-email {
-    color: var(--hover-text);
+    color: white;
     font-size: 0.8rem;
     padding: 4px 8px 8px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -70,4 +70,10 @@
 
 .menu-item:hover {
     background: rgba(255, 255, 255, 0.08);
+}
+
+.headerWrap {
+    --accent: transparent;
+    --container: var(--brand-light);
+    flex-shrink: 0;
 }

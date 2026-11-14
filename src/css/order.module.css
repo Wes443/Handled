@@ -11,6 +11,8 @@
     align-items: center;
     color: var(--default-text);
     justify-content: space-between;
+    box-shadow: 0 0px 15px -5px #6f8f8b;
+
 }
 
 .pill {

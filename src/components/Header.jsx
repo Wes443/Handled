@@ -6,7 +6,7 @@ import styles from "../css/header.module.css";
 import { Down } from "../icons";
 import { useNavigate } from "react-router-dom";
 
-function Header({user}) {
+function Header({user, isHome}) {
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef(null);
@@ -35,22 +35,25 @@ function Header({user}) {
     };
 
     return (
-        <div className={styles["bar"]}>
-            <div onClick={() => navigate(-1)}><Down style={{color: "var(--default-text)", transform: "rotate(90deg)"}}/></div>
+        <div className={styles["headerWrap"]}>
+            <div className={styles["bar"]}>
+                {!isHome && <div onClick={() => navigate(-1)}><Down style={{color: "var(--default-text)", transform: "rotate(90deg)"}}/></div>}
+                {isHome && <Down style={{color: "var(--default-text)", transform: "rotate(90deg)"}}/>}
 
-            <div className={styles["profile"]} ref={menuRef}>
-                <div className={styles["pfp"]} onClick={() => setMenuOpen(!menuOpen)}>
-                    <p>{getInitials(user)}</p>
-                </div>
-
-                {menuOpen && (
-                    <div className={styles["menu"]}>
-                        <p className={styles["menu-email"]}>{user?.email}</p>
-                        <button className={styles["menu-item"]} onClick={handleLogout}>
-                            Log out
-                        </button>
+                <div className={styles["profile"]} ref={menuRef}>
+                    <div className={styles["pfp"]} onClick={() => setMenuOpen(!menuOpen)}>
+                        <p>{getInitials(user)}</p>
                     </div>
-                )}
+
+                    {menuOpen && (
+                        <div className={styles["menu"]}>
+                            <p className={styles["menu-email"]}>{user?.email}</p>
+                            <button className={styles["menu-item"]} onClick={handleLogout}>
+                                Log out
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

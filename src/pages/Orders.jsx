@@ -50,11 +50,11 @@ function Orders(){
             <div className={styles["content"]}>
                 <div className={styles["orders-box"]}>
                     <span style={{display: "flex", justifyContent: "space-between"}} onClick={() => navigate("/upcoming-orders")}>
-                        <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Upcoming Orders</p>
+                        <p style={{color: "var(--hover-text)", paddingLeft: "10px"}}>Upcoming Orders</p>
                         <Down style={{width: "20", height: "20", color: "var(--hover-text)", transform: "rotate(270deg)"}} />
                     </span>
                         
-                    {upcomingOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "5px"}}>nothing to see here...</p>}
+                    {upcomingOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "10px"}}>nothing to see here...</p>}
 
                     <div className={styles["orders"]}>
                         {upcomingOrders && upcomingOrders.map(order => (
@@ -65,11 +65,11 @@ function Orders(){
 
                 <div className={styles["orders-box"]}>
                     <span style={{display: "flex", justifyContent: "space-between"}} onClick={() => navigate("/pending-orders")}>
-                        <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Pending Orders</p>
+                        <p style={{color: "var(--hover-text)", paddingLeft: "10px"}}>Pending Orders</p>
                         <Down style={{width: "20", height: "20", color: "var(--hover-text)", transform: "rotate(270deg)"}} />
                     </span>
                         
-                    {pendingOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "5px"}}>nothing to see here...</p>}
+                    {pendingOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "10px"}}>nothing to see here...</p>}
 
                     <div className={styles["orders"]}>
                         {pendingOrders && pendingOrders.map(order => (
@@ -80,11 +80,11 @@ function Orders(){
 
                 <div className={styles["orders-box"]}>
                     <span style={{display: "flex", justifyContent: "space-between"}} onClick={() => navigate("/past-orders")}>
-                        <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Past Orders</p>
+                        <p style={{color: "var(--hover-text)", paddingLeft: "10px"}}>Past Orders</p>
                         <Down style={{width: "20", height: "20", color: "var(--hover-text)", transform: "rotate(270deg)"}} />
                     </span>
                         
-                    {pastOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "5px"}}>nothing to see here...</p>}
+                    {pastOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "10px"}}>nothing to see here...</p>}
 
                     <div className={styles["orders"]}>
                         {pastOrders && pastOrders.map(order => (

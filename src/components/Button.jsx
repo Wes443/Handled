@@ -5,12 +5,12 @@ export default function Button({ text, color, onChange, icon }) {
     return (
         <button
             type="button"
-            style={{ backgroundColor: color }}
+            style={{ background: color }}
             className={styles.button}
             onClick={onChange}
         >
             {icon === "google" && (
-                <GoogleLogo style={{ width: "24px", height: "24px", color: "var(--container)" }} />
+                <GoogleLogo style={{ width: "24px", height: "24px", color: "#0B4A42" }} />
             )}
             {icon === "plus" && (
                 <Plus style={{ width: "24px", height: "24px", color: "var(--container)" }} />

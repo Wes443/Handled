@@ -6,6 +6,8 @@
     align-items: center;
     justify-content: space-evenly;
     flex-shrink: 0;
+    border-radius: 26px;
+    box-shadow: 0 10px 30px -8px #0a3a3340;
 }
 
 .icon {
@@ -21,4 +23,9 @@
     font: inherit;
     font-size: 12px;
     
+}
+
+.navWrap {
+    padding: 10px;
+    flex-shrink: 0;
 }

@@ -101,7 +101,7 @@ export default function ImageUpload({ images, onChange }) {
                 </div>
             )}
 
-            <Button text={buttonText} color="var(--container)" onChange={openPicker} icon="upload" />
+            <Button text={buttonText} color="var(--brand-dark)" onChange={openPicker} icon="upload" />
 
             {error && <p className={styles["error"]}>{error}</p>}
         </div>

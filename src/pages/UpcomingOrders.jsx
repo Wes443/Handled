@@ -37,7 +37,7 @@ function UpcomingOrders() {
             <Header user={user} />
             <div className={styles["content"]}>
                 <div className={styles["orders-box"]}>
-                    <p style={{color: "var(--hover-text)", paddingLeft: "5px"}}>Upcoming Orders</p>
+                    <p style={{color: "var(--hover-text)", paddingLeft: "15px"}}>Upcoming Orders</p>
         
                     {upcomingOrders.length === 0 && <p style={{color: "var(--default-text)", paddingLeft: "5px"}}>nothing to see here...</p>}
 

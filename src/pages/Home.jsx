@@ -46,7 +46,7 @@ function Home(){
 
     return (
         <div className={styles["page"]}>
-            <Header user={user} />
+            <div className={styles["headerWrap"]}><Header user={user} /></div>
             <div className={styles["content"]}>
                 <div>
                     <p style={{color: "var(--hover-text)", fontSize: "14px"}}>Welcome back</p>
@@ -64,7 +64,14 @@ function Home(){
                             </div>
                         </div>
                     ) : (
-                        <p style={{color: "var(--hover-text)"}}>nothing to see here...</p>
+                        <div className={styles["hero"]}>
+                            <p className={styles["heroLabel"]}>Upcoming visit</p>
+                            <p className={styles["heroBig"]}>No visits yet</p>
+                            <p className={styles["heroSub"]}>When maintenance schedules your request, it shows up here.</p>
+                            <div className={styles["heroRow"]}>
+                                <span className={styles["heroChip"]} onClick={() => navigate("/create-order")} style={{cursor: "pointer"}}>+ New request</span>
+                            </div>
+                        </div>
                     )}
                 </div>
 
@@ -94,7 +101,7 @@ function Home(){
                     </div>
                 </div>
             </div>
-            <Navbar />
+            <div className={styles["navWrap"]}><Navbar /></div>
         </div>
     )
 }

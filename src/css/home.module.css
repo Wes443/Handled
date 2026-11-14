@@ -124,11 +124,11 @@
 
 .actIcon {
     position: absolute;
-    right: -8px;
-    top: -6px;
-    width: 96px;
-    height: 96px;
-    opacity: 0.28;
+    right: -4px;
+    top: -2px;
+    width: 72px;
+    height: 72px;
+    opacity: 0.3;
     transform: skewX(14deg) rotate(-10deg);
 }
 
@@ -156,4 +156,24 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.actIcon * {
+    stroke-width: 1.6px;
+}
+
+.headerWrap {
+    --accent: transparent;
+    --container: var(--brand-light);
+    flex-shrink: 0;
+}
+
+.navWrap {
+    padding: 0 14px 14px;
+    flex-shrink: 0;
+}
+
+.navWrap > * {
+    border-radius: 26px;
+    box-shadow: 0 10px 30px -8px #0a3a3340;
 }
